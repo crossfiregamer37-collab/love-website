@@ -2,271 +2,246 @@
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter For You ❤️</title>
 
-    <title>A Letter For You ❤️</title>
+<style>
 
-    <style>
+* {
+    box-sizing: border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+    margin: 0;
+    min-height: 100vh;
 
-        body {
-            margin: 0;
-            min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #ffe4ec,
+        #fff8fa
+    );
 
-            background: linear-gradient(
-                135deg,
-                #ffe4ec,
-                #fff8fa
-            );
+    font-family: Georgia, "Times New Roman", serif;
 
-            font-family: Georgia, "Times New Roman", serif;
+    padding: 25px 12px;
+}
 
-            padding: 30px 15px;
-        }
+.letter {
+    width: 100%;
+    max-width: 700px;
 
-        .letter {
-            width: 100%;
-            max-width: 780px;
+    margin: auto;
 
-            margin: 0 auto;
+    background: #fffdf8;
 
-            background: #fffdf8;
+    padding: 35px;
 
-            padding: 45px;
+    border-radius: 10px;
 
-            border-radius: 10px;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.13);
+}
 
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.15);
 
-            animation: appear 1s ease;
-        }
+/* HEART */
 
-        .top-heart {
-            text-align: center;
-            font-size: 50px;
+.top-heart {
+    text-align: center;
 
-            animation: heartbeat 1.3s infinite;
-        }
+    font-size: 45px;
 
-        h1 {
-            text-align: center;
+    animation: heartbeat 1.3s infinite;
+}
 
-            color: #c73665;
 
-            font-size: clamp(32px, 6vw, 48px);
+/* TITLE */
 
-            margin-bottom: 35px;
-        }
+h1 {
+    text-align: center;
 
-        .letter-text {
-            color: #444;
+    color: #c73665;
 
-            font-size: 20px;
+    font-size: 42px;
 
-            line-height: 1.9;
-        }
+    margin-bottom: 30px;
+}
 
-        .signature {
-            margin-top: 35px;
 
-            text-align: right;
+/* LETTER */
 
-            color: #c73665;
+.letter-text {
+    color: #444;
 
-            font-size: 23px;
+    font-size: 18px;
 
-            font-style: italic;
-        }
+    line-height: 1.8;
+}
 
+.signature {
+    margin-top: 30px;
 
-        /* =========================
-           PHOTO SECTION
-        ========================= */
+    text-align: right;
 
-        .memories {
-            margin-top: 50px;
+    color: #c73665;
 
-            text-align: center;
-        }
+    font-size: 21px;
 
-        .memories h2 {
-            color: #c73665;
+    font-style: italic;
+}
 
-            font-size: 30px;
 
-            margin-bottom: 25px;
-        }
+/* PHOTOS */
 
-        .photo-grid {
+.memories {
+    margin-top: 40px;
 
-            display: grid;
+    text-align: center;
+}
 
-            grid-template-columns: repeat(2, 1fr);
+.memories h2 {
+    color: #c73665;
 
-            gap: 25px;
+    font-size: 26px;
 
-            width: 100%;
-        }
+    margin-bottom: 20px;
+}
 
-        .photo-card {
 
-            background: white;
+/* 2 × 2 */
 
-            padding: 8px;
+.photo-grid {
+    display: grid;
 
-            border-radius: 10px;
+    grid-template-columns:
+        repeat(2, 1fr);
 
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.15);
+    gap: 15px;
 
-            transition: 0.3s ease;
-        }
+    max-width: 500px;
 
-        .photo-card img {
+    margin: auto;
+}
 
-            display: block;
 
-            width: 100%;
+/* PHOTO */
 
-            height: 260px;
+.photo-card {
+    background: white;
 
-            object-fit: cover;
+    padding: 5px;
 
-            border-radius: 6px;
-        }
+    border-radius: 8px;
 
-        .photo-card:hover {
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.12);
 
-            transform:
-                translateY(-5px)
-                rotate(1deg);
+    transition: 0.25s;
+}
 
-        }
+.photo-card img {
+    display: block;
 
+    width: 100%;
 
-        /* =========================
-           NEXT BUTTON
-        ========================= */
+    height: 170px;
 
-        .next-button {
+    object-fit: cover;
 
-            display: block;
+    border-radius: 5px;
+}
 
-            margin: 45px auto 0;
+.photo-card:hover {
+    transform:
+        translateY(-4px)
+        rotate(1deg);
+}
 
-            padding: 14px 30px;
 
-            border: none;
+/* BUTTON */
 
-            border-radius: 30px;
+.next-button {
+    display: block;
 
-            background: #ff4f81;
+    margin: 35px auto 0;
 
-            color: white;
+    padding: 13px 28px;
 
-            font-size: 18px;
+    border: none;
 
-            cursor: pointer;
+    border-radius: 30px;
 
-            transition: 0.2s;
-        }
+    background: #ff4f81;
 
-        .next-button:hover {
+    color: white;
 
-            transform: scale(1.08);
+    font-size: 17px;
 
-        }
+    cursor: pointer;
 
+    transition: 0.2s;
+}
 
-        /* =========================
-           ANIMATIONS
-        ========================= */
+.next-button:hover {
+    transform: scale(1.07);
+}
 
-        @keyframes appear {
 
-            from {
+/* ANIMATION */
 
-                opacity: 0;
+@keyframes heartbeat {
 
-                transform:
-                    translateY(30px);
+    0% {
+        transform: scale(1);
+    }
 
-            }
+    50% {
+        transform: scale(1.12);
+    }
 
-            to {
+    100% {
+        transform: scale(1);
+    }
 
-                opacity: 1;
+}
 
-                transform:
-                    translateY(0);
 
-            }
+/* PHONE */
 
-        }
+@media (max-width: 600px) {
 
-        @keyframes heartbeat {
+    .letter {
+        padding: 25px 18px;
+    }
 
-            0% {
-                transform: scale(1);
-            }
+    h1 {
+        font-size: 34px;
+    }
 
-            50% {
-                transform: scale(1.15);
-            }
+    .letter-text {
+        font-size: 17px;
+    }
 
-            100% {
-                transform: scale(1);
-            }
+    /* 1 × 4 */
 
-        }
+    .photo-grid {
+        grid-template-columns: 1fr;
 
+        max-width: 300px;
 
-        /* =========================
-           PHONE
-        ========================= */
+        gap: 15px;
+    }
 
-        @media (max-width: 600px) {
+    .photo-card img {
 
-            body {
-                padding: 15px 10px;
-            }
+        height: 190px;
 
-            .letter {
+    }
 
-                padding:
-                    30px 20px;
+}
 
-            }
-
-            .letter-text {
-
-                font-size: 18px;
-
-            }
-
-            .photo-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-
-            }
-
-            .photo-card img {
-
-                height: 300px;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -274,137 +249,135 @@
 <body>
 
 
-    <div class="letter">
+<div class="letter">
 
 
-        <div class="top-heart">
+    <div class="top-heart">
+        ❤️
+    </div>
+
+
+    <h1>
+        A Letter For You
+    </h1>
+
+
+    <div class="letter-text">
+
+        <p>
+            My love,
+        </p>
+
+        <p>
+            There are some things that are
+            difficult to say in a normal
+            conversation, so I thought I'd
+            write them here instead. ❤️
+        </p>
+
+        <p>
+            From the moment we met, you
+            became someone incredibly
+            special to me.
+        </p>
+
+        <p>
+            I love the little things about
+            you — the things you probably
+            don't even realize I notice.
+        </p>
+
+        <p>
+            And honestly...
+            I'm really glad that our paths
+            crossed.
+        </p>
+
+        <p>
+            Thank you for being you.
             ❤️
-        </div>
+        </p>
+
+    </div>
 
 
-        <h1>
-            A Letter For You
-        </h1>
+    <div class="signature">
+
+        Yours always,<br>
+
+        <strong>Adi ❤️</strong>
+
+    </div>
 
 
-        <div class="letter-text">
+    <!-- PHOTOS -->
 
-            <p>
-                My love,
-            </p>
+    <div class="memories">
 
-            <p>
-                There are some things that are
-                difficult to say in a normal
-                conversation, so I thought I'd
-                write them here instead. ❤️
-            </p>
-
-            <p>
-                From the moment we met, you
-                became someone incredibly
-                special to me.
-            </p>
-
-            <p>
-                I love the little things about
-                you — the things you probably
-                don't even realize I notice.
-            </p>
-
-            <p>
-                And honestly...
-                I'm really glad that our paths
-                crossed.
-            </p>
-
-            <p>
-                Thank you for being you.
-                ❤️
-            </p>
-
-        </div>
+        <h2>
+            A Few Of Our Memories 📸
+        </h2>
 
 
-        <div class="signature">
-
-            Yours always,<br>
-
-            <strong>Adi ❤️</strong>
-
-        </div>
+        <div class="photo-grid">
 
 
-        <!-- =========================
-             OUR PHOTOS
-        ========================= -->
+            <div class="photo-card">
 
-        <div class="memories">
-
-            <h2>
-                A Few Of Our Memories 📸
-            </h2>
-
-
-            <div class="photo-grid">
-
-
-                <div class="photo-card">
-
-                    <img
-                        src="IMG_2782.jpg"
-                        alt="Our memory"
-                    >
-
-                </div>
-
-
-                <div class="photo-card">
-
-                    <img
-                        src="IMG_3109.jpg"
-                        alt="Our memory"
-                    >
-
-                </div>
-
-
-                <div class="photo-card">
-
-                    <img
-                        src="IMG_3184.JPG"
-                        alt="Our memory"
-                    >
-
-                </div>
-
-
-                <div class="photo-card">
-
-                    <img
-                        src="IMG_3544.JPG"
-                        alt="Our memory"
-                    >
-
-                </div>
-
+                <img
+                    src="IMG_2782.jpg"
+                    alt="Our memory"
+                >
 
             </div>
 
+
+            <div class="photo-card">
+
+                <img
+                    src="IMG_3109.jpg"
+                    alt="Our memory"
+                >
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="IMG_3184.JPG"
+                    alt="Our memory"
+                >
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="IMG_3544.JPG"
+                    alt="Our memory"
+                >
+
+            </div>
+
+
         </div>
 
-
-        <button
-            class="next-button"
-            onclick="window.location.href='memories.html'"
-        >
-
-            NEXT ❤️
-
-        </button>
-
-
     </div>
+
+
+    <button
+        class="next-button"
+        onclick="window.location.href='memories.html'"
+    >
+
+        NEXT ❤️
+
+    </button>
+
+
+</div>
 
 
 </body>
