@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Letter For You ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe4ec,
+                    #fff8fa
+                );
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px 15px;
+        }
+
+        .letter {
+            width: 100%;
+            max-width: 750px;
+
+            background: #fffdf8;
+
+            padding: 45px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.15);
+
+            position: relative;
+
+            animation: appear 1.2s ease;
+        }
+
+        .top-heart {
+            text-align: center;
+            font-size: 50px;
+
+            animation: heartbeat 1.3s infinite;
+        }
+
+        h1 {
+            text-align: center;
+
+            color: #c73665;
+
+            font-size:
+                clamp(32px, 6vw, 48px);
+
+            margin-bottom: 35px;
+        }
+
+        .letter-text {
+
+            color: #444;
+
+            font-size: 20px;
+
+            line-height: 1.9;
+
+        }
+
+        .signature {
+
+            margin-top: 35px;
+
+            text-align: right;
+
+            color: #c73665;
+
+            font-size: 23px;
+
+            font-style: italic;
+
+        }
+
+        /* PHOTO AREA */
+
+        .memories {
+
+            margin-top: 45px;
+
+            text-align: center;
+
+        }
+
+        .memories h2 {
+
+            color: #c73665;
+
+            font-size: 30px;
+
+        }
+
+        .photo-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+        }
+
+        .photo-placeholder {
+
+            aspect-ratio: 1 / 1;
+
+            background: #ffe1eb;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: #c73665;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
+
+        }
+
+        .next-button {
+
+            display: block;
+
+            margin: 40px auto 0;
+
+            padding: 14px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #ff4f81;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .next-button:hover {
+
+            transform: scale(1.08);
+
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .letter {
+                padding: 25px 20px;
+            }
+
+            .letter-text {
+                font-size: 18px;
+            }
+
+            .photo-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="letter">
+
+
+        <div class="top-heart">
+            ❤️
+        </div>
+
+
+        <h1>
+            A Letter For You
+        </h1>
+
+
+        <div class="letter-text">
+
+            <p>
+                My love,
+            </p>
+
+            <p>
+                There are some things that are
+                difficult to say in a normal
+                conversation, so I thought I'd
+                write them here instead. ❤️
+            </p>
+
+            <p>
+                From the moment we met, you
+                became someone incredibly
+                special to me.
+            </p>
+
+            <p>
+                I love the little things about
+                you — the things you probably
+                don't even realize I notice.
+            </p>
+
+            <p>
+                And honestly...
+                I'm really glad that our paths
+                crossed.
+            </p>
+
+            <p>
+                Thank you for being you.
+                ❤️
+            </p>
+
+        </div>
+
+
+        <div class="signature">
+
+            Yours always,<br>
+
+            <strong>Adi ❤️</strong>
+
+        </div>
+
+
+        <!-- PHOTOS -->
+
+        <div class="memories">
+
+            <h2>
+                A few of our memories 📸
+            </h2>
+
+
+            <div class="photo-grid">
+
+                <div class="photo-placeholder">
+                    📷 Photo 1
+                </div>
+
+                <div class="photo-placeholder">
+                    📷 Photo 2
+                </div>
+
+                <div class="photo-placeholder">
+                    📷 Photo 3
+                </div>
+
+                <div class="photo-placeholder">
+                    📷 Photo 4
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="next-button"
+            onclick="window.location.href='memories.html'">
+
+            NEXT ❤️
+
+        </button>
+
+
+    </div>
+
+
+</body>
+
+</html>
