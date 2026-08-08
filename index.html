@@ -282,7 +282,13 @@ passwordInput.addEventListener("keydown", function(event) {
 // ================================
 
 const noButton = document.getElementById("noButton");
+const yesButton = document.getElementById("yesButton");
 
+yesButton.addEventListener("click", function() {
+
+    window.location.href = "page2.html";
+
+});
 function moveNoButton() {
 
     const buttonWidth = noButton.offsetWidth;
