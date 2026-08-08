@@ -235,7 +235,8 @@
     </div>
 
 
-    <script>
+   <script>
+
 const correctPassword = "020426";
 
 const passwordInput = document.getElementById("passwordInput");
@@ -246,7 +247,7 @@ const passwordScreen = document.getElementById("passwordScreen");
 const mainPage = document.getElementById("mainPage");
 
 
-// PASSWORD CHECK
+// PASSWORD
 function checkPassword() {
 
     if (passwordInput.value === correctPassword) {
@@ -263,11 +264,10 @@ function checkPassword() {
     }
 }
 
-
 enterButton.addEventListener("click", checkPassword);
 
 
-// Press ENTER for password
+// ENTER KEY
 passwordInput.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
@@ -277,11 +277,7 @@ passwordInput.addEventListener("keydown", function(event) {
 });
 
 
-// ================================
-// NO BUTTON RUNS AWAY 😂
-// ================================
-
-const noButton = document.getElementById("noButton");
+// YES BUTTON → PAGE 2
 const yesButton = document.getElementById("yesButton");
 
 yesButton.addEventListener("click", function() {
@@ -289,6 +285,11 @@ yesButton.addEventListener("click", function() {
     window.location.href = "page2.html";
 
 });
+
+
+// NO BUTTON RUNS AWAY
+const noButton = document.getElementById("noButton");
+
 function moveNoButton() {
 
     const buttonWidth = noButton.offsetWidth;
@@ -305,20 +306,19 @@ function moveNoButton() {
     noButton.style.top = randomY + "px";
 }
 
-
-// Computer
 noButton.addEventListener("mouseenter", moveNoButton);
 
-// Phone/tablet
 noButton.addEventListener("touchstart", function(event) {
 
     event.preventDefault();
     moveNoButton();
 
 });
-     
 
-    </script>
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
