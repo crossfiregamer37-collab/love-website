@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Story ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe1eb
+                );
+
+            color: #444;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            text-align: center;
+
+            padding:
+                80px 20px 60px;
+        }
+
+        .heart {
+            font-size: 60px;
+
+            animation:
+                heartbeat 1.3s infinite;
+        }
+
+        .header h1 {
+            color: #c73665;
+
+            font-size:
+                clamp(40px, 8vw, 60px);
+
+            margin:
+                20px 0 10px;
+        }
+
+        .header p {
+            font-size: 20px;
+
+            color: #777;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding:
+                20px 0 80px;
+        }
+
+
+        /* CENTER LINE */
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+
+            bottom: 0;
+
+            width: 3px;
+
+            background: #ff9fba;
+
+            transform:
+                translateX(-50%);
+        }
+
+
+        /* =========================
+           MEMORY
+        ========================= */
+
+        .memory {
+
+            width: 50%;
+
+            padding:
+                25px;
+
+            position: relative;
+        }
+
+
+        .memory:nth-child(odd) {
+
+            left: 0;
+
+            text-align: right;
+        }
+
+
+        .memory:nth-child(even) {
+
+            left: 50%;
+
+            text-align: left;
+        }
+
+
+        /* =========================
+           MEMORY CARD
+        ========================= */
+
+        .card {
+
+            display: inline-block;
+
+            max-width: 340px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.10);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* NUMBER */
+
+        .number {
+
+            display: inline-flex;
+
+            width: 45px;
+
+            height: 45px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #ff4f81;
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            font-weight: bold;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* DATE */
+
+        .date {
+
+            color: #d6336c;
+
+            font-family: Arial, sans-serif;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .card h2 {
+
+            color: #c73665;
+
+            font-size: 27px;
+
+            margin:
+                8px 0 12px;
+        }
+
+
+        .card p {
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* QUOTE */
+
+        .quote {
+
+            margin-top: 15px;
+
+            padding:
+                12px 15px;
+
+            background: #fff0f5;
+
+            border-left:
+                4px solid #ff7fa3;
+
+            border-radius: 8px;
+
+            font-style: italic;
+
+            color: #c73665;
+        }
+
+
+        /* =========================
+           FINAL MESSAGE
+        ========================= */
+
+        .final {
+
+            text-align: center;
+
+            padding:
+                70px 20px 100px;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .final-heart {
+
+            font-size: 50px;
+
+            animation:
+                heartbeat 1.3s infinite;
+        }
+
+
+        .final h2 {
+
+            color: #c73665;
+
+            font-size:
+                clamp(30px, 7vw, 45px);
+
+            line-height: 1.3;
+        }
+
+
+        .final p {
+
+            font-size: 21px;
+
+            line-height: 1.8;
+
+            color: #555;
+        }
+
+
+        .highlight {
+
+            color: #d6336c;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .next-button {
+
+            border: none;
+
+            padding:
+                15px 32px;
+
+            border-radius: 30px;
+
+            background: #ff4f81;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            margin-top: 25px;
+
+            transition:
+                transform 0.2s;
+        }
+
+
+        .next-button:hover {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           HEARTBEAT
+        ========================= */
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .header {
+                padding:
+                    60px 20px 40px;
+            }
+
+
+            .timeline {
+
+                width: 100%;
+
+                padding:
+                    20px 15px 50px;
+            }
+
+
+            .timeline::before {
+
+                left: 18px;
+
+                transform: none;
+            }
+
+
+            .memory {
+
+                width: 100%;
+
+                left: 0 !important;
+
+                text-align: left !important;
+
+                padding:
+                    15px 10px 15px 45px;
+            }
+
+
+            .card {
+
+                width: 100%;
+
+                max-width: none;
+
+                padding: 22px;
+            }
+
+
+            .card h2 {
+
+                font-size: 24px;
+            }
+
+
+            .card p {
+
+                font-size: 17px;
+            }
+
+
+            .final {
+
+                padding:
+                    50px 20px 80px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <section class="header">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>
+            Our Little Story
+        </h1>
+
+        <p>
+            Four moments... and a million memories.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <div class="timeline">
+
+
+        <!-- MEMORY 1 -->
+
+        <div class="memory">
+
+            <div class="card">
+
+                <div class="number">
+                    01
+                </div>
+
+                <div class="date">
+                    02 April 2026
+                </div>
+
+                <h2>
+                    The Beginning ❤️
+                </h2>
+
+                <p>
+                    The first day we met.
+                </p>
+
+                <div class="quote">
+                    Maggi + chai at CBC.
+                    ☕🍜
+                </div>
+
+                <p style="margin-top: 15px;">
+                    A pretty simple day...
+                    but somehow it became
+                    the beginning of something
+                    really special.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 2 -->
+
+        <div class="memory">
+
+            <div class="card">
+
+                <div class="number">
+                    02
+                </div>
+
+                <div class="date">
+                    The First Text
+                </div>
+
+                <h2>
+                    "Are You AI?" 😂
+                </h2>
+
+                <p>
+                    Yes... that was actually
+                    my first message.
+                </p>
+
+                <div class="quote">
+
+                    I mean... you were so beautiful
+                    that my brain apparently stopped
+                    working after seeing you. 😭❤️
+
+                </div>
+
+                <p style="margin-top: 15px;">
+                    So naturally, asking if you
+                    were AI seemed like the most
+                    reasonable thing to do.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 3 -->
+
+        <div class="memory">
+
+            <div class="card">
+
+                <div class="number">
+                    03
+                </div>
+
+                <div class="date">
+                    The Funny Moments
+                </div>
+
+                <h2>
+                    Too Many To Count 😂
+                </h2>
+
+                <p>
+                    Funny moments?
+                </p>
+
+                <div class="quote">
+
+                    "It will take forever."
+
+                </div>
+
+                <p style="margin-top: 15px;">
+                    And honestly...
+                    you're right.
+                    There are way too many
+                    to fit on one page.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 4 -->
+
+        <div class="memory">
+
+            <div class="card">
+
+                <div class="number">
+                    04
+                </div>
+
+                <div class="date">
+                    My Favorite Memory
+                </div>
+
+                <h2>
+                    Every Single Second ❤️
+                </h2>
+
+                <p>
+                    If you ask me what my
+                    favorite memory is...
+                </p>
+
+                <div class="quote">
+
+                    Every single second
+                    I spend with you.
+
+                </div>
+
+                <p style="margin-top: 15px;">
+                    Every conversation.
+                    Every laugh.
+                    Every silly moment.
+                    Every second.
+                </p>
+
+                <p style="margin-top: 15px;">
+
+                    <span class="highlight">
+                        Every second is my favorite.
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         FINAL MESSAGE
+    ========================= -->
+
+    <section class="final">
+
+        <div class="final-heart">
+            💗
+        </div>
+
+        <h2>
+            And this is only the beginning.
+        </h2>
+
+        <p>
+            Four memories could never
+            possibly tell our whole story.
+        </p>
+
+        <p>
+            Because my favorite part isn't
+            one particular day...
+        </p>
+
+        <p>
+
+            It's simply
+            <span class="highlight">
+                every second I get to spend with you.
+            </span>
+
+            ❤️
+
+        </p>
+
+
+        <button
+            class="next-button"
+            onclick="window.location.href='final.html'"
+        >
+
+            ONE LAST THING ❤️
+
+        </button>
+
+    </section>
+
+
+</body>
+
+</html>
