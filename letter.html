@@ -18,39 +18,33 @@
             margin: 0;
             min-height: 100vh;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ffe4ec,
-                    #fff8fa
-                );
+            background: linear-gradient(
+                135deg,
+                #ffe4ec,
+                #fff8fa
+            );
 
             font-family: Georgia, "Times New Roman", serif;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
             padding: 30px 15px;
         }
 
         .letter {
             width: 100%;
-            max-width: 750px;
+            max-width: 780px;
+
+            margin: 0 auto;
 
             background: #fffdf8;
 
             padding: 45px;
 
-            border-radius: 8px;
+            border-radius: 10px;
 
             box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.15);
+                0 15px 40px rgba(0, 0, 0, 0.15);
 
-            position: relative;
-
-            animation: appear 1.2s ease;
+            animation: appear 1s ease;
         }
 
         .top-heart {
@@ -65,24 +59,20 @@
 
             color: #c73665;
 
-            font-size:
-                clamp(32px, 6vw, 48px);
+            font-size: clamp(32px, 6vw, 48px);
 
             margin-bottom: 35px;
         }
 
         .letter-text {
-
             color: #444;
 
             font-size: 20px;
 
             line-height: 1.9;
-
         }
 
         .signature {
-
             margin-top: 35px;
 
             text-align: right;
@@ -92,46 +82,83 @@
             font-size: 23px;
 
             font-style: italic;
-
         }
 
-        /* PHOTO AREA */
+
+        /* =========================
+           PHOTO SECTION
+        ========================= */
 
         .memories {
-
-            margin-top: 45px;
+            margin-top: 50px;
 
             text-align: center;
-
         }
 
         .memories h2 {
-
             color: #c73665;
 
             font-size: 30px;
 
+            margin-bottom: 25px;
         }
 
         .photo-grid {
 
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
-            gap: 15px;
+            gap: 25px;
 
-            margin-top: 20px;
+            width: 100%;
+        }
+
+        .photo-card {
+
+            background: white;
+
+            padding: 8px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+
+            transition: 0.3s ease;
+        }
+
+        .photo-card img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 260px;
+
+            object-fit: cover;
+
+            border-radius: 6px;
+        }
+
+        .photo-card:hover {
+
+            transform:
+                translateY(-5px)
+                rotate(1deg);
 
         }
 
-       
+
+        /* =========================
+           NEXT BUTTON
+        ========================= */
+
         .next-button {
 
             display: block;
 
-            margin: 40px auto 0;
+            margin: 45px auto 0;
 
             padding: 14px 30px;
 
@@ -148,7 +175,6 @@
             cursor: pointer;
 
             transition: 0.2s;
-
         }
 
         .next-button:hover {
@@ -157,18 +183,29 @@
 
         }
 
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
         @keyframes appear {
 
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(30px);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0);
+
             }
 
         }
@@ -189,19 +226,42 @@
 
         }
 
+
+        /* =========================
+           PHONE
+        ========================= */
+
         @media (max-width: 600px) {
 
+            body {
+                padding: 15px 10px;
+            }
+
             .letter {
-                padding: 25px 20px;
+
+                padding:
+                    30px 20px;
+
             }
 
             .letter-text {
+
                 font-size: 18px;
+
             }
 
             .photo-grid {
-                grid-template-columns:
-                    1fr;
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+            }
+
+            .photo-card img {
+
+                height: 300px;
+
             }
 
         }
@@ -275,24 +335,59 @@
         </div>
 
 
-        <!-- PHOTOS -->
+        <!-- =========================
+             OUR PHOTOS
+        ========================= -->
 
         <div class="memories">
 
             <h2>
-                A few of our memories 📸
+                A Few Of Our Memories 📸
             </h2>
 
 
             <div class="photo-grid">
 
-               <img src="IMG_2782.jpg" alt="Our memory">
 
-<img src="IMG_3109.jpg" alt="Our memory">
+                <div class="photo-card">
 
-<img src="IMG_3184.JPG" alt="Our memory">
+                    <img
+                        src="IMG_2782.jpg"
+                        alt="Our memory"
+                    >
 
-<img src="IMG_3544.JPG" alt="Our memory">
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="IMG_3109.jpg"
+                        alt="Our memory"
+                    >
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="IMG_3184.JPG"
+                        alt="Our memory"
+                    >
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="IMG_3544.JPG"
+                        alt="Our memory"
+                    >
+
+                </div>
+
 
             </div>
 
@@ -301,7 +396,8 @@
 
         <button
             class="next-button"
-            onclick="window.location.href='memories.html'">
+            onclick="window.location.href='memories.html'"
+        >
 
             NEXT ❤️
 
