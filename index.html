@@ -236,50 +236,81 @@
 
 
     <script>
+const correctPassword = "020426";
 
-        // The website password
-        const correctPassword = "020426";
+const passwordInput = document.getElementById("passwordInput");
+const enterButton = document.getElementById("enterButton");
+const wrongPassword = document.getElementById("wrongPassword");
 
-        const passwordInput = document.getElementById("passwordInput");
-        const enterButton = document.getElementById("enterButton");
-        const wrongPassword = document.getElementById("wrongPassword");
-
-        const passwordScreen = document.getElementById("passwordScreen");
-        const mainPage = document.getElementById("mainPage");
+const passwordScreen = document.getElementById("passwordScreen");
+const mainPage = document.getElementById("mainPage");
 
 
-        // Check password
-        function checkPassword() {
+// PASSWORD CHECK
+function checkPassword() {
 
-            if (passwordInput.value === correctPassword) {
+    if (passwordInput.value === correctPassword) {
 
-                passwordScreen.style.display = "none";
-                mainPage.style.display = "flex";
+        passwordScreen.style.display = "none";
+        mainPage.style.display = "flex";
 
-            } else {
+    } else {
 
-                wrongPassword.textContent =
-                    "Hmm... try remembering our first day 😌❤️";
+        wrongPassword.textContent =
+            "Hmm... try remembering our first day 😌❤️";
 
-                passwordInput.value = "";
-
-            }
-        }
-
-
-        // When OPEN is clicked
-        enterButton.addEventListener("click", checkPassword);
+        passwordInput.value = "";
+    }
+}
 
 
-        // Allow pressing ENTER
-        passwordInput.addEventListener("keydown", function(event) {
+enterButton.addEventListener("click", checkPassword);
 
-            if (event.key === "Enter") {
-                checkPassword();
-            }
 
-        });
+// Press ENTER for password
+passwordInput.addEventListener("keydown", function(event) {
 
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+
+});
+
+
+// ================================
+// NO BUTTON RUNS AWAY 😂
+// ================================
+
+const noButton = document.getElementById("noButton");
+
+function moveNoButton() {
+
+    const buttonWidth = noButton.offsetWidth;
+    const buttonHeight = noButton.offsetHeight;
+
+    const maxX = window.innerWidth - buttonWidth - 20;
+    const maxY = window.innerHeight - buttonHeight - 20;
+
+    const randomX = Math.max(10, Math.random() * maxX);
+    const randomY = Math.max(10, Math.random() * maxY);
+
+    noButton.style.position = "fixed";
+    noButton.style.left = randomX + "px";
+    noButton.style.top = randomY + "px";
+}
+
+
+// Computer
+noButton.addEventListener("mouseenter", moveNoButton);
+
+// Phone/tablet
+noButton.addEventListener("touchstart", function(event) {
+
+    event.preventDefault();
+    moveNoButton();
+
+});
+     
 
     </script>
 
