@@ -3,31 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Little Question ❤️</title>
+
+    <title>Just For You ❤️</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
             overflow: hidden;
         }
 
-        .container {
+        /* ---------- PASSWORD SCREEN ---------- */
+
+        #passwordScreen {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: linear-gradient(135deg, #ffd6e7, #fff5f8);
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 42px;
+        .password-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 30px;
+            border-radius: 25px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 35px rgba(214, 51, 108, 0.15);
+        }
+
+        .lock {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .password-box h1 {
+            color: #d6336c;
+            margin-bottom: 10px;
+        }
+
+        .password-box p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .hint {
+            font-weight: bold;
+            color: #d6336c;
+        }
+
+        #passwordInput {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ffc1d6;
+            border-radius: 15px;
+            font-size: 20px;
+            text-align: center;
+            outline: none;
+            margin-top: 15px;
+        }
+
+        #enterButton {
+            margin-top: 15px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4f81;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #wrongPassword {
+            color: #e63964;
+            margin-top: 15px;
+            min-height: 22px;
+        }
+
+        /* ---------- FIRST PAGE ---------- */
+
+        #mainPage {
+            display: none;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+            padding: 20px;
+        }
+
+        .main-box {
+            max-width: 600px;
+        }
+
+        .main-box h1 {
+            font-size: clamp(35px, 8vw, 60px);
             color: #d6336c;
             margin-bottom: 15px;
         }
 
-        p {
+        .main-box p {
             font-size: 24px;
             color: #555;
             margin-bottom: 35px;
@@ -58,19 +141,147 @@
         button:hover {
             transform: scale(1.08);
         }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 600px) {
+
+            .password-box {
+                padding: 30px 20px;
+            }
+
+            .password-box h1 {
+                font-size: 28px;
+            }
+
+            .password-box p {
+                font-size: 16px;
+            }
+
+            .main-box p {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>You are beautiful ❤️</h1>
+    <!-- PASSWORD SCREEN -->
 
-        <p>Do you agree or not?</p>
+    <div id="passwordScreen">
 
-        <button id="yesButton">YES ❤️</button>
-        <button id="noButton">NO 😌</button>
+        <div class="password-box">
+
+            <div class="lock">🔐</div>
+
+            <h1>A little secret...</h1>
+
+            <p>
+                This little website is only for you. ❤️
+            </p>
+
+            <p>
+                <span class="hint">
+                    The password is the first day we met.
+                </span>
+                <br>
+                It's a 6 digit password.
+            </p>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter the 6 digits"
+                maxlength="6"
+                inputmode="numeric"
+            >
+
+            <br>
+
+            <button id="enterButton">
+                OPEN ❤️
+            </button>
+
+            <div id="wrongPassword"></div>
+
+        </div>
+
     </div>
+
+
+    <!-- FIRST PAGE -->
+
+    <div id="mainPage">
+
+        <div class="main-box">
+
+            <h1>You are beautiful ❤️</h1>
+
+            <p>
+                Do you agree or not?
+            </p>
+
+            <button id="yesButton">
+                YES ❤️
+            </button>
+
+            <button id="noButton">
+                NO 😌
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // The website password
+        const correctPassword = "020426";
+
+        const passwordInput = document.getElementById("passwordInput");
+        const enterButton = document.getElementById("enterButton");
+        const wrongPassword = document.getElementById("wrongPassword");
+
+        const passwordScreen = document.getElementById("passwordScreen");
+        const mainPage = document.getElementById("mainPage");
+
+
+        // Check password
+        function checkPassword() {
+
+            if (passwordInput.value === correctPassword) {
+
+                passwordScreen.style.display = "none";
+                mainPage.style.display = "flex";
+
+            } else {
+
+                wrongPassword.textContent =
+                    "Hmm... try remembering our first day 😌❤️";
+
+                passwordInput.value = "";
+
+            }
+        }
+
+
+        // When OPEN is clicked
+        enterButton.addEventListener("click", checkPassword);
+
+
+        // Allow pressing ENTER
+        passwordInput.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+
+        });
+
+
+    </script>
 
 </body>
 </html>
